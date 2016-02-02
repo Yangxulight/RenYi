@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +9,14 @@
 	<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<style type="text/css" media="screen">
+	.high{
+		z-index: 9999;
+	}	
+	</style>
 </head>
 <body>
-<nav>
+<nav class="high">
 	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">
 		<li><a href="" title="">商城</a></li>
 		<li><a href="order.html" title="我的订单">订单</a></li>
@@ -42,7 +50,7 @@
 				<div class="tab-pane fade" id="tab2">
 					<div class="tabbable tabs-left">
 						<ul class="nav nav-tabs">
-							<li class=""><a href="#fabric1" title="" data-toggle="tab">棉布</a></li>
+							<li class="active"><a href="#fabric1" title="" data-toggle="tab">棉布</a></li>
 							<li><a href="#fabric2" title="" data-toggle="tab">麻布</a></li>
 							<li><a href="#fabric3" title="" data-toggle="tab">丝绸</a></li>
 							<li><a href="#fabric4" title="" data-toggle="tab">呢绒</a></li>
@@ -51,33 +59,31 @@
 							<li><a href="#fabric7" title="" data-toggle="tab">混纺</a></li>
 						</ul>
 						<div class="tab-content">
-							<div class="tab-pane" id="fabric1">
-							<?php foreach ($page_data['cotton'] as $row){ ?>
+							<div class="tab-pane fade acitve" id="fabric1">
+							<?php foreach($cotton as $row){ ?>
 							<div class="row">
 								<div class="col-xs-4">
-								<img src=<?php echo $row->good_img?> class="img-responsive">
+								<img src="<?php echo $row->good_img ?>" class="img-responsive">
 								</div>
-								<div class="cols-xs-8">
+								<div class="col-xs-8">
 									<div class="row">
-											<div class="cols-xs-6">
-												<h4 class="text-left"><?php echo $row->good_name ?></h4>	
+											<div class="col-xs-8">
+												<p class="text-left"><?php echo $row->good_name ?></p>
+												<small>￥<?php echo $row->good_price?></small>	
+												<small><?php echo $row->good_desc ?></small>
+											</div>
+											<div class="col-xs-4">
+																-adasdsad
 											</div>						
 									</div>
-									<div class="row">
-										<p>没什么好说的，你爱买不买，老子要关门了</p>	
-									</div>
+
 								</div>
 							</div>
+							<?php } ?>
 							</div>
 							<div class="tab-pane" id="fabric2">
 								
 							</div>
-							<div class="tab-pane" id="fabric3">
-								
-							</div>
-							<div class="tab-pane" id="fabric4"> </div>
-							<div class="tab-pane" id="fabric5"> </div>							<div class="tab-pane" id="fabric6"> </div>						<div class="tab-pane" id="fabric7"> </div>
-							<div class="tab-pane" id="fabric8"> </div>
 						</div>
 					</div>
 				</div>
