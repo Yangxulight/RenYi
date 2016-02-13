@@ -16,14 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-<nav class="high">
-	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">
-		<li><a href="" title="">商城</a></li>
-		<li><a href="order.html" title="我的订单">订单</a></li>
-		<li><a href="shop_cart.html" title="购物车">购物车<span class="badge pull-right">3</span></a></li>
-		<li><a href="course.html" title="预约服务">预约服务</a></li>
-	</ul>
-</nav>
+
 <div class="container">
 	<div class="jumbotron">
 		<h1 class="text-center">紝衣工作室</h1>	
@@ -63,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php foreach($cotton as $row){ ?>
 							<div class="row">
 								<div class="col-xs-4">
-								<img src="<?php echo $row->good_img ?>" class="img-responsive">
+								<img src="<?php echo base_url().$row->good_img ?>" class="img-responsive">
 								</div>
 								<div class="col-xs-8">
 									<div class="row">
@@ -96,6 +89,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 
 	
-
+<nav >
+	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">
+		<li><a href="" title="">商城</a></li>
+		<li><a href="order.html" title="我的订单">订单</a></li>
+		<li><a href="shop_cart.html" title="购物车">购物车<span class="badge pull-right">3</span></a></li>
+		<li><a href="course.html" title="预约服务">预约服务</a></li>
+	</ul>
+</nav>
 </body>
 </html>
