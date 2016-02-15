@@ -14,9 +14,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		z-index: 9999;
 	}	
 	</style>
+	<script>
+		$(document).ready(function (){
+			$(".btn").click(function() {
+				var num = $(this).parent().prev().val();//获取输入框内容
+				var good_id = $(this).parent().prev().attr("id");
+				var send_url = "<?php echo site_url("shop_cart/add_good"); ?>";
+				$.post(send_url,{
+					"good_id":good_id,
+			 		"num":num
+				},
+				function(data,status){
+					alert("Data: " + data+"\nStatus: " + status);
+				})
+				// $.ajax({
+				// 	type:"POST",
+				// 	url:send_url,
+				// 	data:{
+				// 		"good_id":good_id,
+				// 		"num":num
+				// 	},
+				// 	dataType:"text",
+				// 	async:false,
+				// 	success:function(back){
+				// 		alert(back);
+				// 	}
+				// });
+			});
+		});
+	</script>
 </head>
 <body>
-
+<!-- 用户名显示 -->
+<?php echo $_SESSION['username']; ?>
 <div class="container">
 	<div class="jumbotron">
 		<h1 class="text-center">紝衣工作室</h1>	
@@ -66,7 +96,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 												<small><?php echo $row->good_desc ?></small>
 											</div>
 											<div class="col-xs-4">
-																-adasdsad
+
+
+											<!-- 	添加商品 -->
+												<div class="row">
+												<input type="text" name="" size="4" id=<?php echo $row->good_id ?> value="0" placeholder="">
+													<a href="#" title=""><button type="button" class="btn">+</button></a>
+												</div>
 											</div>						
 									</div>
 
@@ -86,15 +122,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 
-</div>
-
-	
+</div>	
 <nav >
 	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">
-		<li><a href="" title="">商城</a></li>
-		<li><a href="order.html" title="我的订单">订单</a></li>
-		<li><a href="shop_cart.html" title="购物车">购物车<span class="badge pull-right">3</span></a></li>
-		<li><a href="course.html" title="预约服务">预约服务</a></li>
+		<li><a href=<?php echo site_url('page'); ?> title="">商城</a></li>
+		<li><a href=<?php echo site_url('order'); ?> title="我的订单">订单</a></li>
+		<li><a href=<?php echo site_url('shop_cart'); ?> title="购物车">购物车<span class="badge pull-right">3</span></a></li>
+		<li><a href=<?php echo site_url('book'); ?> title="预约服务">预约服务</a></li>
 	</ul>
 </nav>
 </body>

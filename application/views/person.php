@@ -46,10 +46,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <nav >
 	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">
-		<li><a href="" title="">商城</a></li>
-		<li><a href="order.html" title="我的订单">订单</a></li>
-		<li><a href="shop_cart.html" title="购物车">购物车<span class="badge pull-right">3</span></a></li>
-		<li><a href="course.html" title="预约服务">预约服务</a></li>
+		<li><a href=<?php echo site_url('page') ?> title="">商城</a></li>
+		<li><a href=<?php echo site_url('order'); ?> title="我的订单">订单</a></li>
+		<li><a href=<?php echo site_url('shop_cart'); ?> title="购物车">购物车<span class="badge pull-right">3</span></a></li>
+		<li><a href=<?php echo site_url('book') ?> title="预约服务">预约服务</a></li>
 	</ul>
 </nav>
 </body>

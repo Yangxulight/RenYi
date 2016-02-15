@@ -12,7 +12,6 @@ class Account extends CI_Controller{
 		session_start();
 	}
 	public function index(){
-		echo sha1('password');
 		//先判断是否已经登陆了
 		if(isset($_SESSION['username']))
 		{

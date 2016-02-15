@@ -18,10 +18,11 @@ class Page extends CI_Controller{
 		//
 		//后面还要加入各种分类的商品的信息查询操作。 
 		$page_data = array('cotton'=>$cotton,'linen'=>$linen);
-		$this->load->view('index',$page_data);
+		$this->load->view('page_view',$page_data);
 	
 	}
 	public function test(){
 		$this->load->view('person');
 	}
+
 }
