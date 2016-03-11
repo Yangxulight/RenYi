@@ -18,11 +18,16 @@ class Shop_cart extends CI_Controller{
 	}
 	//添加商品到用户购物车
 	public function add_good(){
-
 		$good_id = $_POST['good_id'];
 		$num = $_POST['num'];
 		$username = $_SESSION['username'];
 		$this->Shop_cart_model->add_good($good_id,$num,$username);
+	}
+
+	public function delete_good(){
+		$good_id = $_POST['good_id'];
+		$username = $_SESSION['username'];
+		$this->Shop_cart_model->delete_good($good_id,$username);
 	}
 }
 ?>

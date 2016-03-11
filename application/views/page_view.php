@@ -46,7 +46,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <!-- 用户名显示 -->
-<?php echo $_SESSION['username']; ?>
+<div class="row">
+	<div class="col-xs-6">
+	<a href="<?php echo site_url("Person");?>" title=""><?php echo $_SESSION['username']; ?>
+</a>
+	</div>
+	<div class="col-xs-6">
+		<a href="<?php echo site_url("account/logout"); ?>" title="">退出</a>	
+	</div>
+</div>
 <div class="container">
 	<div class="jumbotron">
 		<h1 class="text-center">紝衣工作室</h1>	
@@ -100,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 											<!-- 	添加商品 -->
 												<div class="row">
-												<input type="text" name="" size="4" id=<?php echo $row->good_id ?> value="0" placeholder="">
+												<input type="text" name="" size="4" id=<?php echo $row->good_id ?> value="1" placeholder="">
 													<a href="#" title=""><button type="button" class="btn">+</button></a>
 												</div>
 											</div>						

@@ -7,7 +7,7 @@ class Shop_cart_model extends CI_Model{
 
 	// 返回购物车商品
 	public function get_cart_good($username){
-		$this->db->select('f.good_name,f.good_desc,f.good_price,f.good_img,c.good_num,c.user_name',false);
+		$this->db->select('f.good_name,f.good_desc,f.good_price,f.good_img,c.good_id,c.good_num,c.user_name',false);
 		$this->db->from('fabric_good as f');
 		$this->db->join('cart_good as c','f.good_id = c.good_id');
 		$result = $this->db->where('user_name',$username)->get()->result();
@@ -35,6 +35,26 @@ class Shop_cart_model extends CI_Model{
 					 'good_num'=>$num);
 			$this->db->insert('cart_good',$data);
 		}
+	}
+	//删除购物车里面的内容
+	public function delete_good($good_id,$username)
+	{
+		$this->db->where('good_id',$good_id)
+					 ->where('user_name',$username);
+		$this->db->delete('cart_good');
+	}
+	public function get_cart_good_by_username($username){
+		$this->db->select('f.good_name,f.good_desc,f.good_price,f.good_img,c.good_id,c.good_num,c.user_name',false);
+		$this->db->from('fabric_good as f');
+		$this->db->join('cart_good as c','f.good_id = c.good_id');
+		$result = $this->db->where('user_name',$username)->get()->result_array();
+		return $result;
+	}
+
+	public function empty_shop_cart($username)
+	{
+		$this->db->where('user_name',$username);
+		$this->db->delete('cart_good');
 	}
 } 
 ?>

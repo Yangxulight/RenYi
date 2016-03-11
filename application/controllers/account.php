@@ -12,7 +12,7 @@ class Account extends CI_Controller{
 		session_start();
 	}
 	public function index(){
-		//先判断是否已经登陆了
+			//先判断是否已经登陆了
 		if(isset($_SESSION['username']))
 		{
 			redirect('page');

@@ -10,6 +10,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">  
   <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+  <script>
+  	$(document).ready(function (){
+		$(".delete").click(function() {
+			var good_id = $(this).attr("id");
+			var send_url = "<?php echo site_url("shop_cart/delete_good"); ?>";
+			$.post(send_url,{
+				"good_id":good_id,
+			},
+			function(data,status){
+				alert("Data: " + data+"\nStatus: " + status);
+			})		
+		});
+	});
+  </script>
 </head>
 <body>
 
@@ -39,13 +54,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                       <!--  添加商品 -->
                   <div class="row">
-                  <a href="" title=""><button type="button" class="btn">删除</button></a>
+                  <a href="" title=""><button type="button" id="<?php echo $row->good_id ?>" class="btn delete">删除</button></a>
                   </div>
                </div>            
             </div>
          </div>
     </div>
     <?php } ?>
+    <div class="row">
+      <button type="" class="pull-right btn btn-default"><a href=<?php echo site_url('Order/order_form'); ?> title="">结 算</a></button>
+    </div>
 </div>
 <nav >
 	<ul class="nav nav-tabs navbar-fixed-bottom navbar-inverse">

@@ -43,4 +43,19 @@ class Account_model extends CI_Model{
 		$query = $this->db->get('users');
 		return $query->num_rows()? TRUE:FALSE;
 	}
+
+	public function get_user_info($username)
+	{
+		$this->db->where('user_name',$username);
+		$query = $this->db->get('users');
+		return $query->row_array(1);
+	}
+	public function edit_user_info($username,$address,$contact){
+		$this->db->where('user_name',$username);
+		$data = array(
+			'user_address' => $address,
+			'user_contact' => $contact);
+		$this->db->update('users',$data);	
+	}
+
 } ?>

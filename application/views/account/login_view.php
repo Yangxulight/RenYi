@@ -100,11 +100,11 @@ html,body {
 </head>
 
 <body>
-<?php echo validation_errors(); ?>
+<!-- <?php echo validation_errors(); ?> -->
 <div class="box">
 		<div class="login-box">
 							<div class="errors">
-					<?php echo validation_errors() ?>	
+					<?php echo validation_errors(); ?>	
 					</div>	
 			<div class="login-title text-center">
 				<h1><small>登录</small></h1>
@@ -158,7 +158,7 @@ html,body {
 					</div>
 				</div>
 
-				<?php form_close() ?>
+				<?php form_close(); ?>
 			</div>
 			
 		</div>
